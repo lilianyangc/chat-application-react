@@ -1,97 +1,64 @@
 import React, {useState,useEffect} from 'react';
 import MaterialTable from 'material-table';
 import axios from 'axios';
+import Moment from 'react-moment';
 
 export default function EventHistory() {
     const [logs, setLogs] = useState([]);
     const [load, setLoad] = useState(false);
-    const [error, setError] = useState('');
-
-    // const [state, setState] = React.useState({
-
-    //     columns: [
-    //     { title: 'Name', field: 'name' },
-    //     { title: 'Surname', field: 'surname' },
-    //     { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-    //     {
-    //         title: 'Birth Place',
-    //         field: 'birthCity',
-    //         lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-    //     },
-    //     ],
-    //     data: [
-    //     { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-    //     {
-    //         name: 'Zerya Betül',
-    //         surname: 'Baran',
-    //         birthYear: 2017,
-    //         birthCity: 34,
-    //     },
-    //     ],
-        
-    // });
+    // const [error, setError] = useState('');
 
     useEffect(() => {
         axios.get('http://chat-masters.herokuapp.com/api/eventlog')
             .then(res => {
+                console.log(res.data[0])
                 setLogs({
-                    cols: [{ title: 'Type', field: 'type'}],
+                    cols: [{ title: 'Type', field: 'type'},
+                    { title: 'Date', field: 'date',
+                    render: rowData => <Moment format="YYYY/MM/DD" date={rowData.date}/>
+                },
+                    { title: 'Time', field: 'date',
+                    render: rowData => <Moment format="h:mm:ss a" date={rowData.date}/>
+                },
+                    { title: 'User', field: 'username'},
+                    { title: 'EventID', field: 'socket'}, //Socket Id
+                    { title: 'PPID', field: '_id'}
+                    ],
                     data: res.data});
-                // setCols([
-                //     { title: 'Type', field: 'type'}
-                // ])
+            
                 setLoad(true);
             })
             .catch(err => {
-                setError(err.message);
-                setLoad(true)
+                console.log(err.message);
+                setLoad(true);
             })
     }, []);
-   
-return (
-    <>
-    <MaterialTable
-    title="Log History"
-    columns={logs.cols}
-    data={logs.data}
-    // editable={{
-    //     // onRowAdd: (newData) =>
-    //     // new Promise((resolve) => {
-    //     //     setTimeout(() => {
-    //     //     resolve();
-    //     //     setLogs((prevState) => {
-    //     //         const data = [...prevState.data];
-    //     //         data.push(newData);
-    //     //         return { ...prevState, data };
-    //     //     });
-    //     //     }, 600);
-    //     // }),
-    //     onRowUpdate: (newData, oldData) =>
-    //     new Promise((resolve) => {
-    //         setTimeout(() => {
-    //         resolve();
-    //         if (oldData) {
-    //             setLogs((prevState) => {
-    //             const data = [...prevState.data];
-    //             data[data.indexOf(oldData)] = newData;
-    //             return { ...prevState, data };
-    //             });
-    //         }
-    //         }, 600);
-    //     }),
-    //     // onRowDelete: (oldData) =>
-    //     // new Promise((resolve) => {
-    //     //     setTimeout(() => {
-    //     //     resolve();
-    //     //     setLogs((prevState) => {
-    //     //         const data = [...prevState.data];
-    //     //         data.splice(data.indexOf(oldData), 1);
-    //     //         return { ...prevState, data };
-    //     //     });
-    //     //     }, 600);
-    //     // }),
-    // }}
-    />
-    </>
-);
+
+
+    if (load) {
+        return (
+            <>
+            <MaterialTable
+            title="Log History"
+            columns={logs.cols}
+            data={logs.data}
+            options={{
+                sorting: true,
+                pageSize: 10,
+                pageSizeOptions: [5, 10, 15, 20, 30 ,50, 75, 100 ],
+                toolbar: true,
+                paging: true
+            }}
+            />
+            </>
+        );
+    } else {
+        return (
+            <div>
+                Loading...
+            </div>
+        );
+    }
+
+
 }
