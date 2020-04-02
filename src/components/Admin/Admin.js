@@ -7,7 +7,7 @@ import {Container} from 'react-bootstrap';
 import ChatHistory from '../ChatHistory';
 import EventHistory from '../EventHistory';
 import Rooms from '../Rooms';
-import { RoutedTabs, NavTab } from "react-router-tabs";
+import { NavTab } from "react-router-tabs";
 
 
 class Admin extends Component {

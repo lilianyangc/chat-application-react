@@ -48,7 +48,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div class="log-form">
+      <div className="log-form">
         <h2>Login</h2>
         <span className="error">{this.state.loginErrors}</span>
         <form onSubmit={this.handleSubmit}>
