@@ -2,8 +2,7 @@ import React, {useState,useEffect} from 'react';
 import MaterialTable from 'material-table';
 import axios from 'axios';
 
-// export default function EventHistrory() {
-export default function EventHistrory() {
+export default function EventHistory() {
     const [logs, setLogs] = useState([]);
     const [load, setLoad] = useState(false);
     const [error, setError] = useState('');
