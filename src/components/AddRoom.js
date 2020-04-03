@@ -14,7 +14,7 @@ function AddRoom() {
     setRoomName(event.target.value);
   }
   const handleChangeStatus = (event) => {
-      setRoomStatus(event.target.value);
+    setRoomStatus(event.target.value);
   }
   const addRoom = () => {
     //Get Current Date and Time
@@ -40,7 +40,7 @@ function AddRoom() {
         console.log(res);
         alert('A Room was created!');
         handleClose();
-        window.location.reload();
+        window.location.reload()
       });
   }
  
