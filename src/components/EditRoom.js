@@ -45,12 +45,6 @@ function EditRoom(props) {
       })
       .catch(err => {alert(err)});
   }
-
-  const checkDetails = ()=>{
-    console.log(roomName);
-    console.log(roomStatus);
-    console.log(roomId);
-  }
  
   return (
     <>
@@ -76,7 +70,6 @@ function EditRoom(props) {
                 <Button variant="contained" onClick={handleClose}>Cancel</Button>
                 <Button variant="contained" color="primary" onClick={editRoom}>Save</Button>
           </Modal.Footer>
-          <Button variant="contained" onClick={checkDetails}>Check</Button>
           </Form>
         </Modal.Body>
       </Modal>
