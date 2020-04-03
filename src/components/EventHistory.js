@@ -45,7 +45,7 @@ export default function EventHistory() {
             options={{
                 sorting: true,
                 pageSize: 7,
-                pageSizeOptions: [5, 10, 15, 20, 30 ,50, 75, 100 ],
+                pageSizeOptions: [7, 10, 15, 20, 30 ,50, 75, 100 ],
                 toolbar: true,
                 paging: true
             }}
