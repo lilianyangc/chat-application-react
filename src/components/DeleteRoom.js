@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 
 function DeleteRoom(props) {
   const [show, setShow] = useState(false);
-  const [roomName, setRoomName] = useState(props.room.name);
-  const [roomStatus, setRoomStatus] = useState(props.room.status);
+  const [roomName] = useState(props.room.name);
+  const [roomStatus] = useState(props.room.status);
   const [roomId, setRoomId] = useState(props.room._id);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -15,9 +15,7 @@ function DeleteRoom(props) {
 
     //send post request to create room
     axios
-      .delete(
-        "http://chat-masters.herokuapp.com/api/delete-room/" + roomId,
-      )
+      .delete(`http://chat-masters.herokuapp.com/api/delete-room/${roomId}`)
       .then(res => {
         console.log(res);
         alert('Room was deleted!');
@@ -25,6 +23,7 @@ function DeleteRoom(props) {
         window.location.reload()
       });
   }
+  
  
   return (
     <>
@@ -34,7 +33,7 @@ function DeleteRoom(props) {
           <Modal.Title>Delete Room</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={deleteRoom}>
+          <Form>
             <Form.Group controlId="roomName">
               <Form.Label>Room Name</Form.Label>
               <Form.Control type="text" value={roomName} readOnly/>
@@ -45,7 +44,7 @@ function DeleteRoom(props) {
             </Form.Group>
           <Modal.Footer>
                 <Button variant="contained" onClick={handleClose}>Cancel</Button>
-                <Button variant="contained" color="secondary" type="submit">Delete</Button>
+                <Button variant="contained" color="secondary" onClick={deleteRoom}>Delete</Button>
           </Modal.Footer>
           </Form>
         </Modal.Body>

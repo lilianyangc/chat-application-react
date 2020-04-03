@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
@@ -21,13 +21,11 @@ function EditRoom(props) {
     //Get Current Date and Time
     var date = Date(Date.now());
     var dateStringify = date.toString();
-    alert('editing room for id:' + roomId);
-    setRoomId(props.room._id);
+    // setRoomId(props.room._id);
 
-    // //send put request to create room
+    //send put request to create room
     axios
-      .put(
-        "http://chat-masters.herokuapp.com/api/update-room/" + roomId,
+      .put(`http://chat-masters.herokuapp.com/api/update-room/${roomId}`,
         {   
             name: roomName,
             lastEdit: dateStringify,
@@ -62,7 +60,7 @@ function EditRoom(props) {
           <Modal.Title>Edit Room</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={editRoom}>
+          <Form>
             <Form.Group controlId="roomName">
               <Form.Label>Room Name</Form.Label>
               <Form.Control onChange={handleChangeRoom} type="text" value={roomName} required />
@@ -76,7 +74,7 @@ function EditRoom(props) {
             </Form.Group>
           <Modal.Footer>
                 <Button variant="contained" onClick={handleClose}>Cancel</Button>
-                <Button variant="contained" color="primary" type="submit">Save</Button>
+                <Button variant="contained" color="primary" onClick={editRoom}>Save</Button>
           </Modal.Footer>
           <Button variant="contained" onClick={checkDetails}>Check</Button>
           </Form>

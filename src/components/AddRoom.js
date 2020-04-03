@@ -22,7 +22,7 @@ function AddRoom() {
     var dateStringify = date.toString();
 
     //send post request to create room
-    axios
+  axios
       .post(
         "http://chat-masters.herokuapp.com/api/new-room",
         {   
@@ -55,7 +55,7 @@ function AddRoom() {
           <Modal.Title>Add Room</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={addRoom}>
+          <Form>
             <Form.Group controlId="roomName">
               <Form.Label>Room Name</Form.Label>
               <Form.Control onChange={handleChangeRoom} type="text" required />
@@ -69,7 +69,7 @@ function AddRoom() {
             </Form.Group>
           <Modal.Footer>
                 <Button variant="contained" onClick={handleClose}>Cancel</Button>
-                <Button variant="contained" color="primary" type="submit">Save</Button>
+                <Button variant="contained" color="primary" onClick={addRoom}>Save</Button>
           </Modal.Footer>
           </Form>
         </Modal.Body>
