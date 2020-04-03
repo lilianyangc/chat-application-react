@@ -13,27 +13,19 @@ class Navigation extends React.Component {
   render() {
     return (
       <>
-      <Tabs className="myTabs" defaultActiveKey="rooms" id="uncontrolled-tab-example">
-        
-        <Tab className="myTab" eventKey="eventHistory" title="Event History">
-            <Container>
-                <br />
-                <EventHistory/>
-             </Container>
-        </Tab>
-        <Tab eventKey="chatHistory" title="Chat History">
-            <Container>
-                <br />
-                <ChatHistory/>
-            </Container>
-        </Tab>
-        <Tab eventKey="rooms" title="Rooms">
-            <Container>
-                <br />
-                <Rooms/>
-            </Container>
-        </Tab>
-      </Tabs>
+      <Container>
+        <Tabs className="tabs" defaultActiveKey="rooms" id="uncontrolled-tab-example">
+          <Tab className="tab" eventKey="rooms" title="Rooms">
+              <Container><br /><Rooms/></Container>
+          </Tab>
+          <Tab className="tab" eventKey="eventHistory" title="Event History">
+              <Container><br /><EventHistory/></Container>
+          </Tab>
+          <Tab className="tab" eventKey="chatHistory" title="Chat History">
+              <Container><br /><ChatHistory/></Container>
+          </Tab>
+        </Tabs>
+      </Container>
       </> 
     );
   }
