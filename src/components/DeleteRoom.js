@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 function DeleteRoom(props) {
   const [show, setShow] = useState(false);
@@ -27,7 +29,7 @@ function DeleteRoom(props) {
  
   return (
     <>
-      <Button variant="contained" onClick={handleShow}>Delete</Button>
+      <Fab variant="contained" id="deleteBtn"onClick={handleShow}><DeleteForeverIcon /></Fab>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Delete Room</Modal.Title>

@@ -16,13 +16,13 @@ class Navigation extends React.Component {
       <Container>
         <Tabs className="tabs" defaultActiveKey="rooms" id="uncontrolled-tab-example">
           <Tab className="tab" eventKey="rooms" title="Rooms">
-              <Container><br /><Rooms/></Container>
+              <br /><Rooms/>
           </Tab>
           <Tab className="tab" eventKey="eventHistory" title="Event History">
-              <Container><br /><EventHistory/></Container>
+              <br /><EventHistory/>
           </Tab>
           <Tab className="tab" eventKey="chatHistory" title="Chat History">
-              <Container><br /><ChatHistory/></Container>
+             <br /><ChatHistory/>
           </Tab>
         </Tabs>
       </Container>

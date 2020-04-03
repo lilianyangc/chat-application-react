@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import EditRoundedIcon from '@material-ui/icons/EditRounded';
+import Snackbar from '@material-ui/core/Snackbar';
+import { Alert } from '@material-ui/lab';
+
 
 function EditRoom(props) {
   const [show, setShow] = useState(false);
@@ -11,12 +16,29 @@ function EditRoom(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose2 = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   const handleChangeRoom = (event) => {
     setRoomName(event.target.value);
   }
   const handleChangeStatus = (event) => {
     setRoomStatus(event.target.value);
   }
+
+ 
+
   const editRoom = () => {
     //Get Current Date and Time
     var date = Date(Date.now());
@@ -39,8 +61,9 @@ function EditRoom(props) {
       )
       .then(res => {
         console.log(res);
-        alert('Room was updated!');
-        handleClose();
+        // alert('Room was updated!');
+        // handleClose();
+        handleClick();
         window.location.reload()
       })
       .catch(err => {alert(err)});
@@ -48,7 +71,7 @@ function EditRoom(props) {
  
   return (
     <>
-      <Button variant="contained" color="primary" onClick={handleShow}>Edit</Button>
+      <Fab variant="contained" id="editBtn" onClick={handleShow}><EditRoundedIcon /></Fab>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Room</Modal.Title>
@@ -73,6 +96,11 @@ function EditRoom(props) {
           </Form>
         </Modal.Body>
       </Modal>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose2}>
+        <Alert onClose={handleClose2} severity="success">
+          This is a success message!
+        </Alert>
+      </Snackbar>
     </>
   );
 }

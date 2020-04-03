@@ -5,3 +5,40 @@
 .Admin {
     /* propertys here */
 }
+
+#deleteBtn{
+    background-color: #ff6961;
+    color: white;
+}
+
+#addBtn{
+    background-color: mediumaquamarine;
+    color: white;
+}
+
+#editBtn{
+    background-color: orange;
+    color: white;
+}
+
+#navColor{
+    background-color: mediumaquamarine!important;
+    color: white;
+}
+
+#fooColor{
+    background-color: mediumaquamarine!important;
+    color: white;
+}
+
+.MuiFab-root {
+    color: white;
+}
+
+a{
+    color: mediumaquamarine; 
+    /* teal */
+}
+#tableBg{
+    /* background-color: mediumaquamarine; */
+}

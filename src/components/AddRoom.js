@@ -48,7 +48,7 @@ function AddRoom() {
   return (
     <>
       <div style={{ width: "10em", margin: "1em", marginTop: "2em" }}>
-        <Fab variant="contained" color="primary" onClick={handleShow}>
+        <Fab variant="contained" id="addBtn" onClick={handleShow}>
           <LibraryAddTwoToneIcon />&nbsp;Add Room
         </Fab>
       </div>
