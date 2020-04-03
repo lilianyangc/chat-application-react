@@ -10,7 +10,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import AddRoom from './AddRoom'
+import AddRoom from './AddRoom';
+import EditRoom from './EditRoom';
 
 
 class Rooms extends React.Component {
@@ -61,7 +62,8 @@ class Rooms extends React.Component {
                     <TableCell align="right"><Moment format="(h:mm:ss a) YYYY/MM/DD" date={row.date}/></TableCell>
 					<TableCell align="right"><Moment format="(h:mm:ss a) YYYY/MM/DD" date={row.lastEdit}/></TableCell>
                     <TableCell align="right">{row.status}</TableCell>
-                    <TableCell align="right"><Button variant="contained" color="primary" onClick={this.editRoom.bind(this,row)}>Edit</Button></TableCell>
+					<TableCell align="right"><EditRoom room={row}/></TableCell>
+                    {/* <TableCell align="right"><Button variant="contained" color="primary" onClick={this.editRoom.bind(this,row)}>Edit</Button></TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>

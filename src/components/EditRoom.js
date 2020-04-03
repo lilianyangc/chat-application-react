@@ -3,10 +3,11 @@ import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
 import Button from '@material-ui/core/Button';
 
-function AddRoom() {
+function EditRoom(props) {
   const [show, setShow] = useState(false);
-  const [roomName, setRoomName] = useState('');
-  const [roomStatus, setRoomStatus] = useState('Active');
+  const [roomName, setRoomName] = useState(props.room.name);
+  const [roomStatus, setRoomStatus] = useState(props.room.staus);
+  const [roomId, setRoomId] = useState(props.room._id);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -16,15 +17,15 @@ function AddRoom() {
   const handleChangeStatus = (event) => {
       setRoomStatus(event.target.value);
   }
-  const addRoom = () => {
+  const editRoom = () => {
     //Get Current Date and Time
     var date = Date(Date.now());
     var dateStringify = date.toString();
 
     //send post request to create room
     axios
-      .post(
-        "http://chat-masters.herokuapp.com/api/new-room",
+      .put(
+        "http://chat-masters.herokuapp.com/api/update-room/" + roomId,
         {   
             name: roomName,
             lastEdit: dateStringify,
@@ -38,7 +39,7 @@ function AddRoom() {
       )
       .then(res => {
         console.log(res);
-        alert('A Room was created!');
+        alert('Room was updated!');
         handleClose();
         window.location.reload();
       });
@@ -46,23 +47,20 @@ function AddRoom() {
  
   return (
     <>
-      <div style={{ width: "10em", margin: "1em", marginTop: "2em" }}>
-        <Button variant="contained" color="primary" onClick={handleShow}>Add Room</Button>
-      </div>
-
+      <Button variant="contained" color="primary" onClick={handleShow}>Edit</Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Room</Modal.Title>
+          <Modal.Title>Edit Room</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={addRoom}>
+          <Form onSubmit={editRoom}>
             <Form.Group controlId="roomName">
               <Form.Label>Room Name</Form.Label>
-              <Form.Control onChange={handleChangeRoom} type="text" required />
+              <Form.Control onChange={handleChangeRoom} type="text" value={roomName} required />
             </Form.Group>
             <Form.Group controlId="roomStatus">
               <Form.Label>Status</Form.Label>
-              <Form.Control  as="select" value={roomStatus} onChange={handleChangeStatus}>
+              <Form.Control  as="select" value={roomStatus} value={roomStatus} onChange={handleChangeStatus}>
                 <option>Active</option>
                 <option>Inactive</option>
               </Form.Control>
@@ -78,4 +76,4 @@ function AddRoom() {
   );
 }
 
-export default AddRoom;
+export default EditRoom;
