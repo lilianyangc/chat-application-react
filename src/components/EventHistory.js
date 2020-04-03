@@ -44,7 +44,7 @@ export default function EventHistory() {
             data={logs.data}
             options={{
                 sorting: true,
-                pageSize: 10,
+                pageSize: 7,
                 pageSizeOptions: [5, 10, 15, 20, 30 ,50, 75, 100 ],
                 toolbar: true,
                 paging: true

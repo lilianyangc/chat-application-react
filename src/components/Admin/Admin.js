@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 import './Admin.css';
 import history from "../History";
 
-// import { NavTab } from "react-router-tabs";
 import Navigation from '../Navigation';
 
 class Admin extends Component {
@@ -25,11 +25,9 @@ class Admin extends Component {
 
   render() {
     return (
-      <>
+      <> 
         <h3 className="m-3 d-flex justify-content">Admin Home</h3>
         <div><button onClick={this.logout}>Logout</button></div>
-        
-      
         <Navigation />
       
       </>
