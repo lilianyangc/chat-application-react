@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
-import Button from '@material-ui/core/Button';
+import {Button, Fab} from '@material-ui/core';
+import LibraryAddTwoToneIcon from '@material-ui/icons/LibraryAddTwoTone';
 
 function AddRoom() {
   const [show, setShow] = useState(false);
@@ -47,7 +48,9 @@ function AddRoom() {
   return (
     <>
       <div style={{ width: "10em", margin: "1em", marginTop: "2em" }}>
-        <Button variant="contained" color="primary" onClick={handleShow}>Add Room</Button>
+        <Fab variant="contained" color="primary" onClick={handleShow}>
+          <LibraryAddTwoToneIcon />&nbsp;Add Room
+        </Fab>
       </div>
 
       <Modal show={show} onHide={handleClose}>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
+import { Navbar} from 'react-bootstrap';
+import Fab from '@material-ui/core/Fab';
+
 import './Admin.css';
 import history from "../History";
 
@@ -25,11 +27,22 @@ class Admin extends Component {
 
   render() {
     return (
-      <> 
-        <h3 className="m-3 d-flex justify-content">Admin Home</h3>
-        <div><button onClick={this.logout}>Logout</button></div>
+      <>
+        <Navbar bg="light" expand="lg">
+          <h1 className="m-3 d-flex justify-content">Admin</h1>
+          <Navbar.Collapse className="m-3 d-flex justify-content-end">
+            <Navbar.Text>
+              {/* <Button onClick={this.logout}>
+              <span class="material-icons">power_settings_new</span>Logout
+              </Button> */}
+              <Fab onClick={this.logout} color="primary" aria-label="add">
+              <span class="material-icons">power_settings_new</span>              
+              </Fab>
+            </Navbar.Text>
+          </Navbar.Collapse>
+        </Navbar>
+        <br />
         <Navigation />
-      
       </>
     );
   }
