@@ -98,7 +98,7 @@ export default function ChatHistory() {
         return (
             <>
             <MaterialTable
-            title="Log History"
+            title="Chat History"
             columns={logs.cols}
             data={logs.data}
             options={{
