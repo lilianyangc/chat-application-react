@@ -23,3 +23,13 @@
     height:500px;
     margin:0 auto;
   }
+
+#loginBtn{
+    background-color: orange;
+    color: white;
+}
+
+#loginBtn:hover{
+    background-color: mediumaquamarine;
+    color:white;
+}

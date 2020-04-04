@@ -42,3 +42,17 @@ a{
 #tableBg{
     /* background-color: mediumaquamarine; */
 }
+
+a:hover {
+    background-color: mediumaquamarine;
+    color:white;
+  }
+
+#navText{
+    border-style: solid!important;
+    border: white!important;
+}
+
+#icon{
+    transform: scale(2.5);
+}

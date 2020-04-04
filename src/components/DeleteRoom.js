@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
-import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -59,8 +58,8 @@ function DeleteRoom(props) {
               <Form.Control type="text" value={roomStatus} readOnly/>
             </Form.Group>
           <Modal.Footer>
-                <Button variant="contained" onClick={handleClose}>Cancel</Button>
-                <Button variant="contained" color="secondary" onClick={deleteRoom}>Delete</Button>
+                <Fab variant="contained" onClick={handleClose}>Cancel</Fab>
+                <Fab variant="contained" id="deleteBtn" onClick={deleteRoom}>Delete</Fab>
           </Modal.Footer>
           </Form>
         </Modal.Body>
