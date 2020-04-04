@@ -15,18 +15,15 @@ function EditRoom(props) {
   const [roomId, setRoomId] = useState(props.room._id);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const [open, setOpen] = React.useState(false);
 
-  const handleClick = () => {
+
+  const handleOpenSnackbar = () => {
     setOpen(true);
   };
 
-  const handleClose2 = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') { return; }
     setOpen(false);
   };
 
@@ -49,6 +46,7 @@ function EditRoom(props) {
     axios
       .put(`http://chat-masters.herokuapp.com/api/update-room/${roomId}`,
         {   
+  
             name: roomName,
             lastEdit: dateStringify,
             status: roomStatus 
@@ -61,10 +59,9 @@ function EditRoom(props) {
       )
       .then(res => {
         console.log(res);
-        // alert('Room was updated!');
-        // handleClose();
-        handleClick();
-        window.location.reload()
+        props.handleSetState();
+        handleClose();
+        handleOpenSnackbar();
       })
       .catch(err => {alert(err)});
   }
@@ -96,9 +93,9 @@ function EditRoom(props) {
           </Form>
         </Modal.Body>
       </Modal>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose2}>
-        <Alert onClose={handleClose2} severity="success">
-          This is a success message!
+      <Snackbar autoHideDuration={3000} open={open} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="success">
+          Room was updated!
         </Alert>
       </Snackbar>
     </>
