@@ -11,7 +11,7 @@ function EditRoom(props) {
   const [show, setShow] = useState(false);
   const [roomName, setRoomName] = useState(props.room.name);
   const [roomStatus, setRoomStatus] = useState(props.room.status);
-  const [roomId, setRoomId] = useState(props.room._id);
+  const [roomId] = useState(props.room._id);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [open, setOpen] = React.useState(false);

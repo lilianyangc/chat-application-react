@@ -6,6 +6,11 @@
     /* propertys here */
 }
 
+#iconLink{
+    text-decoration: none;
+    color: white;
+}
+
 #logoutBtn{
     color: #CC6C67;
 }
