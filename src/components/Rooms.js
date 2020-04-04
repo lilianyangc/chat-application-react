@@ -16,13 +16,13 @@ import DeleteRoom from './DeleteRoom';
 
 
 class Rooms extends React.Component {
-    state = {
-        rooms: [],
-    }
+  state = {
+      rooms: [],
+  }
 
-    componentDidMount(){
+  componentDidMount(){
     this.handleSetState();
-    }
+  }
 	
 	editRoom(room){
 		console.log(room._id)
@@ -32,6 +32,7 @@ class Rooms extends React.Component {
 		console.log('add new room')
   }
 
+  //this will update the state of the list and refresh the list
   handleSetState = () => {
     axios.get('http://chat-masters.herokuapp.com/api/rooms',
     {headers:{'content-type': 'application/json'}
@@ -67,42 +68,18 @@ class Rooms extends React.Component {
                   <TableCell align="right"><Moment format="(h:mm:ss a) YYYY/MM/DD" date={row.date}/></TableCell>
                   <TableCell align="right"><Moment format="(h:mm:ss a) YYYY/MM/DD" date={row.lastEdit}/></TableCell>
                   <TableCell align="right">{row.status}</TableCell>
-                  <TableCell align="right"><EditRoom room={row} handleSetState={this.handleSetState}/><DeleteRoom handleSetState={this.handleSetState} room={row}/></TableCell>
-                  {/* <TableCell align="right"><Button variant="contained" color="primary" onClick={this.editRoom.bind(this,row)}>Edit</Button></TableCell> */}
+                  <TableCell align="right">
+                    <EditRoom room={row} handleSetState={this.handleSetState}/>
+                    <DeleteRoom handleSetState={this.handleSetState} room={row}/>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
 			</>
-
-
         );
     }
 }
  
 export default Rooms;
-
-
-{/* <Table striped bordered hover>
-<thead>
-<tr>
-    <th>Id</th>
-    <th>Room</th>
-    <th>Created Date</th>
-    <th>Status</th>
-    <th>Action</th>
-</tr>
-</thead>
-<tbody>
-{this.state.rooms.map((room,i) => 
-// <li key={i}> ID: {i}- {chat.username}:  {chat.message} &nbsp;&nbsp;</li>)}
-<tr key={i}>
-    <td>{i+1}</td>
-    <td>{room.name}</td>
-    <td><Moment format="YYYY/MM/DD" date={room.date}/></td>
-    <td>{room.status}</td>
-    <td><Button variant="contained" color="primary">Edit</Button></td>
-</tr>)}
-</tbody>
-</Table> */}
