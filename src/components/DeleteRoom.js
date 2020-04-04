@@ -23,8 +23,8 @@ function DeleteRoom(props) {
   };
 
   const handleCloseSnackbar = async (event, reason) => {
-    if (reason === 'autoHideDuration') { 
-      return await setTimeout(6000); }
+    if (reason === 'autoHideDuration') { return; }
+    props.handleSetState();
     setOpen(false);
   };
 
@@ -35,11 +35,8 @@ function DeleteRoom(props) {
       .delete(`http://chat-masters.herokuapp.com/api/delete-room/${roomId}`)
       .then(res => {
         console.log(res);
-        // alert('Room was deleted!');
-        props.handleSetState()
-        handleClose();
         handleOpenSnackbar()
-        // window.location.reload()
+        handleClose();
       });
   }
   
@@ -68,7 +65,7 @@ function DeleteRoom(props) {
           </Form>
         </Modal.Body>
       </Modal>
-      <Snackbar autoHideDuration={6000} open={open} onClose={handleCloseSnackbar}>
+      <Snackbar autoHideDuration={3000} open={open} onClose={handleCloseSnackbar}>
         <Alert onClose={handleCloseSnackbar} severity="success">
           Room was deleted!
         </Alert>
