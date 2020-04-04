@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Tabs, Tab, Container } from 'react-bootstrap';
 import  EventHistory  from './EventHistory';
 import ChatHistory from './ChatHistory';
 import Rooms from './Rooms';
+import Paper from '@material-ui/core/Paper';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Navigation extends React.Component {
     return (
       <>
       <Container>
+      <Paper elevation={1}>
         <Tabs className="tabs" defaultActiveKey="rooms" id="uncontrolled-tab-example">
           <Tab className="tab" eventKey="rooms" title="Rooms">
               <br /><Rooms/>
@@ -25,6 +27,7 @@ class Navigation extends React.Component {
              <br /><ChatHistory/>
           </Tab>
         </Tabs>
+      </Paper>
       </Container>
       </> 
     );

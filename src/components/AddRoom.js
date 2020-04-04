@@ -73,7 +73,7 @@ function AddRoom(props) {
           <Form>
             <Form.Group controlId="roomName">
               <Form.Label>Room Name</Form.Label>
-              <Form.Control onChange={handleChangeRoom} type="text" required />
+              <Form.Control onChange={handleChangeRoom} type="text" />
             </Form.Group>
             <Form.Group controlId="roomStatus">
               <Form.Label>Status</Form.Label>

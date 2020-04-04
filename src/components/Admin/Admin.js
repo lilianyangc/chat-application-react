@@ -38,17 +38,14 @@ class Admin extends Component {
     return (
       <>
         <Navbar id="navColor" bg="light" expand="lg">
-          {/* <Box  border={1} {...defaultProps}> */}
-            <Box {...defaultProps}>
-              <h1 className="m-4 d-flex justify-content">&nbsp;<CollectionsBookmarkIcon id="icon"/>&nbsp;&nbsp;Administrator Site</h1>
-            </Box>
-          {/* </Box> */}
+          <Box {...defaultProps}>
+            <Navbar.Brand href="/admin" id="iconLink">
+              <h1 className="m-4 d-flex justify-content">&nbsp;<CollectionsBookmarkIcon id="icon"/>&nbsp;&nbsp;Chat Admin Site</h1>
+            </Navbar.Brand>
+          </Box>
           <Navbar.Collapse className="m-3 d-flex justify-content-end">
             <Navbar.Text>
-              {/* <Button onClick={this.logout}>
-              <span class="material-icons">power_settings_new</span>Logout
-              </Button> */}
-              <Fab onClick={this.logout} aria-label="add">
+              <Fab id="logoutBtn" onClick={this.logout} aria-label="add">
               <span class="material-icons">power_settings_new</span>              
               </Fab>
             </Navbar.Text>
