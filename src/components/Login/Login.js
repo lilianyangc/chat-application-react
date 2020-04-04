@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Row,Col, Container } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
+import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
 import Box from '@material-ui/core/Box';
+import Paper from '@material-ui/core/Paper';
+
 import './Login.css';
 import axios from 'axios';
 import jwt from 'jwt-decode';
@@ -17,7 +20,7 @@ const defaultProps = {
   // style: { width: '5rem', height: '5rem' },
 };
 
-class Login extends Component {
+class Login extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -65,37 +68,32 @@ class Login extends Component {
       <div className="log-form">
       </div>  
       <Container id="Login">
-        <Row className="justify-content-md-center">
-          <Col xs={6} md="auto" lg="auto" xl="auto"></Col>
+        <Paper elevation={3}>
+          <Box {...defaultProps}>
+          <span className="error">{this.state.loginErrors}</span>
+          <h2>Admin Login</h2>
+          <Form onSubmit={this.handleSubmit}>
 
-          <Col xs={12} md="auto" lg="auto" xl="auto">
-            <Box {...defaultProps}>
-            <h2>Admin Login</h2>
-            <span className="error">{this.state.loginErrors}</span>
-            <Form onSubmit={this.handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" name="email" value={this.state.email} onChange={this.handleChange} required/>
+              <Form.Text className="text-muted">
+                Don't forget to logout after admin user.
+              </Form.Text>
+            </Form.Group>
 
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" name="email" value={this.state.email} onChange={this.handleChange} required/>
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} required/>
+            </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} required/>
-              </Form.Group>
-
-              <Fab variant="primary" type="submit" className="btn" id="loginBtn">
-                Submit
-              </Fab>
-              
-            </Form>
-            </Box>
-          </Col>
-          <Col xs={6}md="auto" lg="auto"></Col>
-        </Row>
+            <Fab variant="primary" type="submit" className="btn" id="loginBtn">
+              Submit
+            </Fab>
+            
+          </Form>
+          </Box>
+        </Paper>
       </Container>
       </>
     );

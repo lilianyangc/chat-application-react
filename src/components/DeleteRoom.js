@@ -11,7 +11,7 @@ function DeleteRoom(props) {
   const [show, setShow] = useState(false);
   const [roomName] = useState(props.room.name);
   const [roomStatus] = useState(props.room.status);
-  const [roomId] = useState(props.room._id);
+  const [roomId,setRoomId] = useState(props.room._id);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [open, setOpen] = React.useState(false);
@@ -22,11 +22,11 @@ function DeleteRoom(props) {
   };
 
   const handleCloseSnackbar = async (event, reason) => {
-    let res = await props.handleSetState();
-
-    if (reason === 'autoHideDuration' && res) { 
-      setOpen(false);
+    props.handleSetState();
+    if (reason === 'autoHideDuration') { 
       return; }
+      setOpen(false);
+
   };
 
   const deleteRoom = () => {
