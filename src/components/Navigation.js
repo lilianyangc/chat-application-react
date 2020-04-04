@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Tabs, Tab, Container } from 'react-bootstrap';
 import  EventHistory  from './EventHistory';
 import ChatHistory from './ChatHistory';

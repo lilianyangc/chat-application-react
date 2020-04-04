@@ -6,9 +6,23 @@
     /* propertys here */
 }
 
+#logoutBtn{
+    color: #CC6C67;
+}
+
+#logoutBtn:hover{
+    background-color: #FF8781;
+    color: black;
+}
+
 #deleteBtn{
     background-color: #ff6961;
     color: white;
+}
+
+#deleteBtn:hover{
+    background-color: #FF8781;
+    color: black;
 }
 
 #addBtn{
@@ -16,9 +30,18 @@
     color: white;
 }
 
+#addBtn:hover{
+    background-color: #A2CEC5;
+    color: black;
+}
+
 #editBtn{
     background-color: orange;
     color: white;
+}
+#editBtn:hover{
+    background-color: #FFDA97;
+    color: black;
 }
 
 #navColor{
@@ -44,7 +67,7 @@ a{
 }
 
 a:hover {
-    background-color: mediumaquamarine;
+    background-color: #A2CEC5;
     color:white;
   }
 
