@@ -14,11 +14,9 @@ function AddRoom(props) {
   const handleShow = () => setShow(true);
   const [open, setOpen] = React.useState(false);
 
-
   const handleOpenSnackbar = () => {
     setOpen(true);
-  };
-  
+  };  
   const handleCloseSnackbar = (event, reason) => {
     if (reason === 'clickaway') { return;}
     setOpen(false);
@@ -30,6 +28,7 @@ function AddRoom(props) {
   const handleChangeStatus = (event) => {
     setRoomStatus(event.target.value);
   }
+
   const addRoom = () => {
     //Get Current Date and Time
     var date = Date(Date.now());
@@ -52,7 +51,7 @@ function AddRoom(props) {
       )
       .then(res => {
         console.log(res);
-        props.handleSetState();
+        props.handleSetState(); //refresh state
         handleOpenSnackbar();
         handleClose();
       });

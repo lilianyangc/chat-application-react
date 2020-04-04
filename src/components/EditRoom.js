@@ -32,16 +32,14 @@ function EditRoom(props) {
   const handleChangeStatus = (event) => {
     setRoomStatus(event.target.value);
   }
-
  
 
   const editRoom = () => {
     //Get Current Date and Time
     var date = Date(Date.now());
     var dateStringify = date.toString();
-    // setRoomId(props.room._id);
 
-    //send put request to create room
+    //send put request to update room
     axios
       .put(`http://chat-masters.herokuapp.com/api/update-room/${roomId}`,
         {   
@@ -58,9 +56,9 @@ function EditRoom(props) {
       )
       .then(res => {
         console.log(res);
-        props.handleSetState();
-        handleClose();
-        handleOpenSnackbar();
+        props.handleSetState(); //call parent function to update state
+        handleClose(); //close modal
+        handleOpenSnackbar(); //show snackbar
       })
       .catch(err => {alert(err)});
   }
