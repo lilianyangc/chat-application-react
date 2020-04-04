@@ -3,13 +3,26 @@ import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
 import {Button, Fab} from '@material-ui/core';
 import LibraryAddTwoToneIcon from '@material-ui/icons/LibraryAddTwoTone';
+import Snackbar from '@material-ui/core/Snackbar';
+import { Alert } from '@material-ui/lab';
 
-function AddRoom() {
+function AddRoom(props) {
   const [show, setShow] = useState(false);
   const [roomName, setRoomName] = useState('');
   const [roomStatus, setRoomStatus] = useState('Active');
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [open, setOpen] = React.useState(false);
+
+
+  const handleOpenSnackbar = () => {
+    setOpen(true);
+  };
+  
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') { return;}
+    setOpen(false);
+  };
 
   const handleChangeRoom = (event) => {
     setRoomName(event.target.value);
@@ -39,9 +52,9 @@ function AddRoom() {
       )
       .then(res => {
         console.log(res);
-        alert('A Room was created!');
+        props.handleSetState();
+        handleOpenSnackbar();
         handleClose();
-        window.location.reload()
       });
   }
  
@@ -77,6 +90,11 @@ function AddRoom() {
           </Form>
         </Modal.Body>
       </Modal>
+      <Snackbar autoHideDuration={3000} open={open} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="success">
+          Room was created!
+        </Alert>
+      </Snackbar>
     </>
   );
 }

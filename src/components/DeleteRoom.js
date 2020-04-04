@@ -4,6 +4,9 @@ import axios from "axios";
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import Snackbar from '@material-ui/core/Snackbar';
+import { Alert } from '@material-ui/lab';
+
 
 function DeleteRoom(props) {
   const [show, setShow] = useState(false);
@@ -12,6 +15,18 @@ function DeleteRoom(props) {
   const [roomId, setRoomId] = useState(props.room._id);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [open, setOpen] = React.useState(false);
+
+
+  const handleOpenSnackbar = () => {
+    setOpen(true);
+  };
+
+  const handleCloseSnackbar = async (event, reason) => {
+    if (reason === 'autoHideDuration') { 
+      return await setTimeout(6000); }
+    setOpen(false);
+  };
 
   const deleteRoom = () => {
 
@@ -20,9 +35,11 @@ function DeleteRoom(props) {
       .delete(`http://chat-masters.herokuapp.com/api/delete-room/${roomId}`)
       .then(res => {
         console.log(res);
-        alert('Room was deleted!');
+        // alert('Room was deleted!');
+        props.handleSetState()
         handleClose();
-        window.location.reload()
+        handleOpenSnackbar()
+        // window.location.reload()
       });
   }
   
@@ -51,6 +68,11 @@ function DeleteRoom(props) {
           </Form>
         </Modal.Body>
       </Modal>
+      <Snackbar autoHideDuration={6000} open={open} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="success">
+          Room was deleted!
+        </Alert>
+      </Snackbar>
     </>
   );
 }

@@ -20,16 +20,9 @@ class Rooms extends React.Component {
         rooms: [],
     }
 
-  componentDidMount(){
-    axios.get('http://chat-masters.herokuapp.com/api/rooms',
-    {headers:{'content-type': 'application/json'}
-    }).then(res => {
-        console.log(res.data)
-        this.setState({
-            rooms: res.data
-        });
-    });
-	}
+    componentDidMount(){
+    this.handleSetState();
+    }
 	
 	editRoom(room){
 		console.log(room._id)
@@ -39,10 +32,21 @@ class Rooms extends React.Component {
 		console.log('add new room')
   }
 
+  handleSetState = () => {
+    axios.get('http://chat-masters.herokuapp.com/api/rooms',
+    {headers:{'content-type': 'application/json'}
+    }).then(res => {
+        console.log(res.data)
+        this.setState({
+            rooms: res.data
+        });
+    });
+  }
+
     render() { 
         return ( 
 			<>
-			<AddRoom refreshList={this.refreshList}/>
+			<AddRoom refreshList={this.refreshList} handleSetState={this.handleSetState} />
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
             <TableHead>
@@ -63,7 +67,7 @@ class Rooms extends React.Component {
                   <TableCell align="right"><Moment format="(h:mm:ss a) YYYY/MM/DD" date={row.date}/></TableCell>
                   <TableCell align="right"><Moment format="(h:mm:ss a) YYYY/MM/DD" date={row.lastEdit}/></TableCell>
                   <TableCell align="right">{row.status}</TableCell>
-                  <TableCell align="right"><EditRoom room={row}/><DeleteRoom room={row}/></TableCell>
+                  <TableCell align="right"><EditRoom room={row} handleSetState={this.handleSetState}/><DeleteRoom handleSetState={this.handleSetState} room={row}/></TableCell>
                   {/* <TableCell align="right"><Button variant="contained" color="primary" onClick={this.editRoom.bind(this,row)}>Edit</Button></TableCell> */}
                 </TableRow>
               ))}
