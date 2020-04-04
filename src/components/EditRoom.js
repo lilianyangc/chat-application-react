@@ -87,8 +87,8 @@ function EditRoom(props) {
               </Form.Control>
             </Form.Group>
           <Modal.Footer>
-                <Button variant="contained" onClick={handleClose}>Cancel</Button>
-                <Button variant="contained" color="primary" onClick={editRoom}>Save</Button>
+                <Fab variant="contained" onClick={handleClose}>Cancel</Fab>
+                <Fab variant="contained" id="addBtn" onClick={editRoom}>Save</Fab>
           </Modal.Footer>
           </Form>
         </Modal.Body>

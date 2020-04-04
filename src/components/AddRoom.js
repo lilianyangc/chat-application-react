@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
-import {Button, Fab} from '@material-ui/core';
+import { Fab } from '@material-ui/core';
 import LibraryAddTwoToneIcon from '@material-ui/icons/LibraryAddTwoTone';
 import Snackbar from '@material-ui/core/Snackbar';
 import { Alert } from '@material-ui/lab';
@@ -84,8 +84,8 @@ function AddRoom(props) {
               </Form.Control>
             </Form.Group>
           <Modal.Footer>
-                <Button variant="contained" onClick={handleClose}>Cancel</Button>
-                <Button variant="contained" color="primary" onClick={addRoom}>Save</Button>
+                <Fab variant="contained" onClick={handleClose}>Cancel</Fab>
+                <Fab variant="contained" id="addBtn" onClick={addRoom}>Save</Fab>
           </Modal.Footer>
           </Form>
         </Modal.Body>
