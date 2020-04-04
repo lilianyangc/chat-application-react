@@ -22,9 +22,9 @@ function DeleteRoom(props) {
   };
 
   const handleCloseSnackbar = async (event, reason) => {
-    props.handleSetState();
     if (reason === 'autoHideDuration') { 
       return; }
+      props.handleSetState();
       setOpen(false);
 
   };
