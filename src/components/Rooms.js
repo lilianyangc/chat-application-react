@@ -80,27 +80,3 @@ class Rooms extends React.Component {
 }
  
 export default Rooms;
-
-
-{/* <Table striped bordered hover>
-<thead>
-<tr>
-    <th>Id</th>
-    <th>Room</th>
-    <th>Created Date</th>
-    <th>Status</th>
-    <th>Action</th>
-</tr>
-</thead>
-<tbody>
-{this.state.rooms.map((room,i) => 
-// <li key={i}> ID: {i}- {chat.username}:  {chat.message} &nbsp;&nbsp;</li>)}
-<tr key={i}>
-    <td>{i+1}</td>
-    <td>{room.name}</td>
-    <td><Moment format="YYYY/MM/DD" date={room.date}/></td>
-    <td>{room.status}</td>
-    <td><Button variant="contained" color="primary">Edit</Button></td>
-</tr>)}
-</tbody>
-</Table> */}
