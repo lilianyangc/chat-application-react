@@ -1,4 +1,4 @@
-# Admin Super-chat
+# Admin: Super-chat
 Admin Side of the Super-chat
 
 ### COMP 3123 MERN Stack Development (Winter 2020)
@@ -18,3 +18,9 @@ Implements the following:
 - ReactJS
 - NodeJS
 - Heroku as Web Host
+
+Npm modules:
+Axios
+React-bootstrap
+Material-ui
+
