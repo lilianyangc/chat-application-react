@@ -14,8 +14,8 @@ Admin Side of the Super-chat
 
 
 sample credentials:
-- admin@email.com
-- password
+- email: admin@email.com
+- password: password
 
 ## Chat Masters Link
 ### [Link to Project](http://chat-masters.herokuapp.com/)
