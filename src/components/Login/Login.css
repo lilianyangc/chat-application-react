@@ -29,7 +29,13 @@
     color: white;
 }
 
+#wrapLoginBtn{
+    display: flex;
+    justify-content: center;
+}
+
 #loginBtn:hover{
     background-color: mediumaquamarine;
     color:white;
 }
+
