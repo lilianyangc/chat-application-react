@@ -7,4 +7,8 @@ app.use(serveStatic(path.join(__dirname, 'dist')))
 
 var port = process.env.PORT || 8000
 app.listen(port)
-console.log('server listening on port: ' + port)
+console.log(`server listening on port: ${port}`)
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'src/index.js'));
+});
