@@ -87,10 +87,12 @@ class Login extends React.Component {
               <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} required/>
             </Form.Group>
 
+            <div id="wrapLoginBtn">
             <Fab variant="primary" type="submit" className="btn" id="loginBtn">
-              Submit
+              Login
             </Fab>
-            
+            </div>
+
           </Form>
           </Box>
         </Paper>
