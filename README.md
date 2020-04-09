@@ -11,11 +11,11 @@ Admin Side of the Super-chat
 | Yang, Maria Lilian |101151657|
 
 ## Chat Admin Link
-*******************
+
 
 sample credentials:
-admin@email
-password
+- admin@email.com
+- password
 
 ## Chat Masters Link
 ### [Link to Project](http://chat-masters.herokuapp.com/)
