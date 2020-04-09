@@ -9,7 +9,7 @@ export default function ChatHistory() {
     // const [error, setError] = useState('');
 
     useEffect(() => {
-        axios.get('http://chat-masters.herokuapp.com/api/history')
+        axios.get('https://chat-masters.herokuapp.com/api/history')
             .then(res => {
                 console.log(res.data[0])
                 setLogs({

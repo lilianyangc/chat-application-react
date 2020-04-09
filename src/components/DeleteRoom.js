@@ -33,7 +33,7 @@ function DeleteRoom(props) {
 
     //send post request to create room
     axios
-      .delete(`http://chat-masters.herokuapp.com/api/delete-room/${roomId}`)
+      .delete(`https://chat-masters.herokuapp.com/api/delete-room/${roomId}`)
       .then(res => {
         console.log(res);
         handleOpenSnackbar()

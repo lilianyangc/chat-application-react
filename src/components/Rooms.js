@@ -32,7 +32,7 @@ class Rooms extends React.Component {
 
   //this will update the state of the list and refresh the list
   handleSetState = () => {
-    axios.get('http://chat-masters.herokuapp.com/api/rooms',
+    axios.get('https://chat-masters.herokuapp.com/api/rooms',
     {headers:{'content-type': 'application/json'}
     }).then(res => {
         console.log(res.data)

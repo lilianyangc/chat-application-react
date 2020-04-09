@@ -41,7 +41,7 @@ function EditRoom(props) {
 
     //send put request to update room
     axios
-      .put(`http://chat-masters.herokuapp.com/api/update-room/${roomId}`,
+      .put(`https://chat-masters.herokuapp.com/api/update-room/${roomId}`,
         {   
   
             name: roomName,

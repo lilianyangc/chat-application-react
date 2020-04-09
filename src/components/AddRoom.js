@@ -37,7 +37,7 @@ function AddRoom(props) {
     //send post request to create room
   axios
       .post(
-        "http://chat-masters.herokuapp.com/api/new-room",
+        "https://chat-masters.herokuapp.com/api/new-room",
         {   
             name: roomName,
             lastEdit: dateStringify,
