@@ -1,7 +1,7 @@
 # Admin: Super-chat
 Admin Side of the Super-chat
 
-### COMP 3123 MERN Stack Development (Winter 2020)
+### COMP 3133 MERN Stack Development (Winter 2020)
 ### Instructor: 
 - Mike Denton
 
@@ -19,8 +19,8 @@ Implements the following:
 - NodeJS
 - Heroku as Web Host
 
-Npm modules:
-Axios
-React-bootstrap
-Material-ui
+Other modules:
+- Axios
+- React-bootstrap
+- Material-ui
 
