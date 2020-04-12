@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
 import Fab from '@material-ui/core/Fab';
@@ -11,19 +11,27 @@ function EditRoom(props) {
   const [show, setShow] = useState(false);
   const [roomName, setRoomName] = useState(props.room.name);
   const [roomStatus, setRoomStatus] = useState(props.room.status);
-  const [roomId, setRoomId] = useState(props.room._id);
-  const handleClose = () => setShow(false);
+  const [roomId] = useState(props.room._id);
   const handleShow = () => setShow(true);
-  const [open, setOpen] = React.useState(false);
+  const [snackSuccessOpen, setSnackSuccessOpen] = useState(false);
+  const [snackErrorOpen, setSnackErrorOpen] = useState(false);
 
-
-  const handleOpenSnackbar = () => {
-    setOpen(true);
+  const handleClose = () => {
+    setShow(false);
+    //reset form on cancel
+    setRoomName(props.room.name);
+    setRoomStatus(props.room.status);
   };
+
+  useEffect(()=>{
+    setRoomName(props.room.name);
+    setRoomStatus(props.room.status);
+  },[props.room])
 
   const handleCloseSnackbar = (event, reason) => {
     if (reason === 'clickaway') { return; }
-    setOpen(false);
+    setSnackSuccessOpen(false);
+    setSnackErrorOpen(false);
   };
 
   const handleChangeRoom = (event) => {
@@ -35,6 +43,12 @@ function EditRoom(props) {
  
 
   const editRoom = () => {
+    //check if room name is valid
+    if(roomName.trim() === ""){
+      setSnackErrorOpen(true); //opens snackbar
+      return;
+    }
+    
     //Get Current Date and Time
     var date = Date(Date.now());
     var dateStringify = date.toString();
@@ -58,7 +72,7 @@ function EditRoom(props) {
         console.log(res);
         props.handleSetState(); //call parent function to update state
         handleClose(); //close modal
-        handleOpenSnackbar(); //show snackbar
+        setSnackSuccessOpen(true); //show snackbar
       })
       .catch(err => {alert(err)});
   }
@@ -90,9 +104,14 @@ function EditRoom(props) {
           </Form>
         </Modal.Body>
       </Modal>
-      <Snackbar autoHideDuration={3000} open={open} onClose={handleCloseSnackbar}>
+      <Snackbar autoHideDuration={3000} open={snackSuccessOpen} onClose={handleCloseSnackbar}>
         <Alert onClose={handleCloseSnackbar} severity="success">
           Room was updated!
+        </Alert>
+      </Snackbar>
+      <Snackbar autoHideDuration={3000} open={snackErrorOpen} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="error">
+          Invalid room name!
         </Alert>
       </Snackbar>
     </>
