@@ -19,19 +19,19 @@ sample credentials:
 
 Specification Percentage
 Front End Application (React)
-● Routing and Navigation 20%
-● Handling Data & Axios (Express API) 15%
-● Login Component 15%
-○ Authentication
-○ Redirecting on Login
-○ Validation
-● Data View Components 15%
-○ View Chat History
-○ View Event Log
-● CRUD Components 15%
-○ Room View
-UX/UI Design 15%
-Clean Code and Clarity 5%
+- Routing and Navigation 20%
+- Handling Data & Axios (Express API) 15%
+- Login Component 15%
+- Authentication
+- Redirecting on Login
+- Validation
+- Data View Components 15%
+- View Chat History
+- View Event Log
+- CRUD Components 15%
+- Room View
+- UX/UI Design 15%
+- Clean Code and Clarity 5%
 
 
 ## Chat Masters Link
