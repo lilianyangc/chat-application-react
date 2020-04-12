@@ -12,14 +12,14 @@ function AddRoom(props) {
   const [roomStatus, setRoomStatus] = useState('Active');
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [open, setOpen] = React.useState(false);
+  const [snackSuccessOpen, setSnackSuccessOpen] = useState(false);
+  const [snackErrorOpen, setSnackErrorOpen] = useState(false);
 
-  const handleOpenSnackbar = () => {
-    setOpen(true);
-  };  
+  //closes all snackbar 
   const handleCloseSnackbar = (event, reason) => {
     if (reason === 'clickaway') { return;}
-    setOpen(false);
+    setSnackSuccessOpen(false);
+    setSnackErrorOpen(false);
   };
 
   const handleChangeRoom = (event) => {
@@ -30,12 +30,18 @@ function AddRoom(props) {
   }
 
   const addRoom = () => {
+    //check if room name is valid
+    if(roomName.trim() === ""){
+      setSnackErrorOpen(true); //opens snackbar
+      return;
+    }
+
     //Get Current Date and Time
     var date = Date(Date.now());
     var dateStringify = date.toString();
 
     //send post request to create room
-  axios
+    axios
       .post(
         "https://chat-masters.herokuapp.com/api/new-room",
         {   
@@ -52,7 +58,7 @@ function AddRoom(props) {
       .then(res => {
         console.log(res);
         props.handleSetState(); //refresh state
-        handleOpenSnackbar();
+        setSnackSuccessOpen(true); //opens success snackbar
         handleClose();
       });
   }
@@ -89,9 +95,14 @@ function AddRoom(props) {
           </Form>
         </Modal.Body>
       </Modal>
-      <Snackbar autoHideDuration={3000} open={open} onClose={handleCloseSnackbar}>
+      <Snackbar autoHideDuration={3000} open={snackSuccessOpen} onClose={handleCloseSnackbar}>
         <Alert onClose={handleCloseSnackbar} severity="success">
           Room was created!
+        </Alert>
+      </Snackbar>
+      <Snackbar autoHideDuration={3000} open={snackErrorOpen} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="error">
+          Invalid room name!
         </Alert>
       </Snackbar>
     </>
