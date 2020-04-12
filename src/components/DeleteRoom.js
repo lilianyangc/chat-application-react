@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Modal,Form} from "react-bootstrap";
 import axios from "axios";
 import Fab from '@material-ui/core/Fab';
@@ -9,13 +9,18 @@ import { Alert } from '@material-ui/lab';
 
 function DeleteRoom(props) {
   const [show, setShow] = useState(false);
-  const [roomName] = useState(props.room.name);
-  const [roomStatus] = useState(props.room.status);
+  const [roomName, setRoomName] = useState(props.room.name);
+  const [roomStatus, setRoomStatus] = useState(props.room.status);
   const [roomId,setRoomId] = useState(props.room._id);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [open, setOpen] = React.useState(false);
+  const [room, setRoom] = useState(props.room);
 
+  useEffect(()=>{
+    setRoomName(props.room.name);
+    setRoomStatus(props.room.status);
+  },[props.room])
 
   const handleOpenSnackbar = () => {
     setOpen(true);
