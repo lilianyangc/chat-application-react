@@ -13,12 +13,29 @@ Admin Side of the Super-chat
 ## Chat Admin Link
 Github Repo: https://github.com/victafrancis/chat-application-react
 
-Heroku Deployment:
-### [Link to Project](https://chat-app-admin.herokuapp.com/)
+Heroku Deployment: https://chat-app-admin.herokuapp.com/
 
+Implements the following:
+- MongoDb with Mongoose
+- Express
+- ReactJS
+- NodeJS
+- Heroku as Web Host
+
+Other modules:
+- Axios
+- React-bootstrap
+- Material-ui
+- @hapi/joi
+- cors
+- ejs
+- jsonwebtoken
+
+---
 sample credentials:
 - email: admin@email.com
 - password: password
+---
 
 To start the project locally:
 1. npm install
@@ -44,21 +61,6 @@ Front End Application (React)
 
 ## Chat Masters Link
 Github Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
-### [Link to Project](http://chat-masters.herokuapp.com/)
 
-Implements the following:
-- MongoDb with Mongoose
-- Express
-- ReactJS
-- NodeJS
-- Heroku as Web Host
-
-Other modules:
-- Axios
-- React-bootstrap
-- Material-ui
-- @hapi/joi
-- cors
-- ejs
-- jsonwebtoken
+Heroku Deployment: http://chat-masters.herokuapp.com/
 
