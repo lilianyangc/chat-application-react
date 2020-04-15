@@ -30,6 +30,7 @@ Other modules:
 - cors
 - ejs
 - jsonwebtoken
+- bcryptjs
 
 ---
 sample credentials:
