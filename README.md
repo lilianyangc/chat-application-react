@@ -12,6 +12,7 @@ Admin Side of the Super-chat
 
 ## Chat Admin Link
 Github Repo: https://github.com/victafrancis/chat-application-react
+
 Heroku Deployment: https://chat-app-admin.herokuapp.com/
 
 sample credentials:
@@ -42,6 +43,7 @@ Front End Application (React)
 
 ## Chat Masters and Backend Link
 Github Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
+
 Heroku Deployment: http://chat-masters.herokuapp.com/
 
 Implements the following:
