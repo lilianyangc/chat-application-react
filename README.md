@@ -15,9 +15,24 @@ Github Repo: https://github.com/victafrancis/chat-application-react
 
 Heroku Deployment: https://chat-app-admin.herokuapp.com/
 
+---
+Implements the following:
+- MongoDb with Mongoose
+- Express
+- ReactJS
+- NodeJS
+- Heroku as Web Host
+
+Other modules:
+- Axios
+- React-bootstrap
+- Material-ui
+
+---
 sample credentials:
 - email: admin@email.com
 - password: password
+---
 
 To start the project locally:
 Go to package.json file:
@@ -45,16 +60,3 @@ Front End Application (React)
 Github Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
 
 Heroku Deployment: http://chat-masters.herokuapp.com/
-
-Implements the following:
-- MongoDb with Mongoose
-- Express
-- ReactJS
-- NodeJS
-- Heroku as Web Host
-
-Other modules:
-- Axios
-- React-bootstrap
-- Material-ui
-
