@@ -60,7 +60,7 @@ Front End Application (React)
 - UX/UI Design 15%
 - Clean Code and Clarity 5%
 
-## Chat Masters Link
+## Backend and Chat Link
 Github Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
 
 Heroku Deployment: http://chat-masters.herokuapp.com/
