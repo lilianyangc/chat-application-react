@@ -20,6 +20,12 @@ sample credentials:
 - email: admin@email.com
 - password: password
 
+To start the project locally:
+Go to package.json file:
+1. npm install
+2. change: "start": "node server.js" -> to: "start": "react-scripts start"
+3. Run npm start
+
 Specification Percentage
 Front End Application (React)
 - Routing and Navigation 20%
@@ -35,14 +41,6 @@ Front End Application (React)
 - Room View
 - UX/UI Design 15%
 - Clean Code and Clarity 5%
-
-To start the project locally:
-Go to package.json file:
-1. npm install
-2. change: "start": "node server.js" -> to: "start": "react-scripts start"
-3. Run npm start
-
-
 
 ## Chat Masters Link
 Github Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
