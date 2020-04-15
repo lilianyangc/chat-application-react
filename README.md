@@ -33,6 +33,12 @@ Front End Application (React)
 - UX/UI Design 15%
 - Clean Code and Clarity 5%
 
+To start the project locally:
+Go to package.json file:
+1. change: "start": "node server.js" -> to: "start": "react-scripts start"
+2. Run npm start
+
+
 
 ## Chat Masters Link
 ### [Link to Project](http://chat-masters.herokuapp.com/)
