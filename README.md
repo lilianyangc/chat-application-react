@@ -12,9 +12,7 @@ Admin Side of the Super-chat
 
 ## Chat Admin Link
 Github Repo: https://github.com/victafrancis/chat-application-react
-
-Heroku Deployment:
-### [Link to Project](https://chat-app-admin.herokuapp.com/)
+Heroku Deployment: https://chat-app-admin.herokuapp.com/
 
 sample credentials:
 - email: admin@email.com
@@ -42,9 +40,9 @@ Front End Application (React)
 - UX/UI Design 15%
 - Clean Code and Clarity 5%
 
-## Chat Masters Link
+## Chat Masters and Backend Link
 Github Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
-### [Link to Project](http://chat-masters.herokuapp.com/)
+Heroku Deployment: http://chat-masters.herokuapp.com/
 
 Implements the following:
 - MongoDb with Mongoose
