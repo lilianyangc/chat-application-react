@@ -15,7 +15,6 @@ Github Repo: https://github.com/victafrancis/chat-application-react
 
 Heroku Deployment: https://chat-app-admin.herokuapp.com/
 
----
 Implements the following:
 - MongoDb with Mongoose
 - Express
