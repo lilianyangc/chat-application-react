@@ -43,6 +43,7 @@ Go to package.json file:
 
 
 ## Chat Masters Link
+Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
 ### [Link to Project](http://chat-masters.herokuapp.com/)
 
 Implements the following:
