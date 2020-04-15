@@ -11,6 +11,7 @@ Admin Side of the Super-chat
 | Yang, Maria Lilian |101151657|
 
 ## Chat Admin Link
+Github Repo: https://github.com/victafrancis/chat-application-react
 Heroku Deployment:
 ### [Link to Project](https://chat-app-admin.herokuapp.com/)
 
@@ -43,7 +44,7 @@ Go to package.json file:
 
 
 ## Chat Masters Link
-Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
+Github Repo for Backend and Chat FE: https://github.com/victafrancis/super-chat
 ### [Link to Project](http://chat-masters.herokuapp.com/)
 
 Implements the following:
