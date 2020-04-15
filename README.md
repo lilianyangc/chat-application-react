@@ -36,8 +36,9 @@ Front End Application (React)
 
 To start the project locally:
 Go to package.json file:
-1. change: "start": "node server.js" -> to: "start": "react-scripts start"
-2. Run npm start
+1. npm install
+2. change: "start": "node server.js" -> to: "start": "react-scripts start"
+3. Run npm start
 
 
 
