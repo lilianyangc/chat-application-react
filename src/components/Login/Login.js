@@ -51,7 +51,6 @@ class Login extends React.Component {
       )
       .then(response => {
         const decoded = jwt(response.data)
-        console.log(decoded)
         localStorage.setItem('token',response.data)
         history.push("/admin")
       })

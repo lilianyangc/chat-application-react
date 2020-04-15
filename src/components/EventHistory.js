@@ -11,7 +11,6 @@ export default function EventHistory() {
     useEffect(() => {
         axios.get('https://chat-masters.herokuapp.com/api/eventlog')
             .then(res => {
-                console.log(res.data[0])
                 setLogs({
                     cols: [{ title: 'Type', field: 'type'},
                     { title: 'Date', field: 'date',

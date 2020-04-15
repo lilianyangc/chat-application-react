@@ -11,7 +11,6 @@ export default function ChatHistory() {
     useEffect(() => {
         axios.get('https://chat-masters.herokuapp.com/api/history')
             .then(res => {
-                console.log(res.data[0])
                 setLogs({
                     cols: [{ title: 'ID', field: '_id'},
                     { title: 'Message', field: 'message'},

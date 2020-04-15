@@ -35,7 +35,6 @@ class Rooms extends React.Component {
     axios.get('https://chat-masters.herokuapp.com/api/rooms',
     {headers:{'content-type': 'application/json'}
     }).then(res => {
-        console.log(res.data)
         this.setState({
             rooms: res.data
         });
