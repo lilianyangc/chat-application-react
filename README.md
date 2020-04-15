@@ -11,6 +11,7 @@ Admin Side of the Super-chat
 | Yang, Maria Lilian |101151657|
 
 ## Chat Admin Link
+Heroku Deployment:
 ### [Link to Project](https://chat-app-admin.herokuapp.com/)
 
 sample credentials:
