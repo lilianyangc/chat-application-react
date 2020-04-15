@@ -11,6 +11,7 @@ Admin Side of the Super-chat
 | Yang, Maria Lilian |101151657|
 
 ## Chat Admin Link
+Heroku Deployment:
 ### [Link to Project](https://chat-app-admin.herokuapp.com/)
 
 sample credentials:
@@ -32,6 +33,12 @@ Front End Application (React)
 - Room View
 - UX/UI Design 15%
 - Clean Code and Clarity 5%
+
+To start the project locally:
+Go to package.json file:
+1. change: "start": "node server.js" -> to: "start": "react-scripts start"
+2. Run npm start
+
 
 
 ## Chat Masters Link
